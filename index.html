@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noor Home Renovations | General Contracting NYC</title>
     
-    <!-- Importing Professional Fonts & Icons (FontAwesome for the Service Cards) -->
+    <!-- Importing Professional Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -19,220 +19,127 @@
             --bg-light: #F4F7F6;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* SMOOTH SCROLL & ANIMATIONS */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
         html { scroll-behavior: smooth; }
 
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInLeft {
-            0% { opacity: 0; transform: translateX(-50px); }
-            100% { opacity: 1; transform: translateX(0); }
-        }
+        @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-50px); } 100% { opacity: 1; transform: translateX(0); } }
 
         /* NAVIGATION BAR */
         .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(11, 25, 44, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            position: fixed; top: 0; width: 100%;
+            background: rgba(11, 25, 44, 0.95); backdrop-filter: blur(10px);
+            padding: 20px 40px; display: flex; justify-content: space-between;
+            align-items: center; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-
-        .navbar .logo {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
+        .navbar .logo { color: var(--text-light); font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
         .navbar .logo span { color: var(--accent-color); }
-
         .nav-links { display: flex; gap: 25px; align-items: center; }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent-color); }
 
-        /* MULTILINGUAL TOGGLE BUTTON */
         .lang-toggle {
-            background: transparent;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 5px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
+            background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color);
+            padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: 0.3s;
         }
-        .lang-toggle:hover {
-            background: var(--accent-color);
-            color: var(--text-light);
-        }
+        .lang-toggle:hover { background: var(--accent-color); color: var(--text-light); }
 
         /* HERO SECTION */
         .hero {
             height: 100vh;
             background: linear-gradient(rgba(11, 25, 44, 0.8), rgba(11, 25, 44, 0.9)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            padding: 0 10%;
+            display: flex; align-items: center; padding: 0 10%;
         }
-
-        .hero-content {
-            max-width: 800px;
-            animation: slideInLeft 1s ease-out forwards;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            color: var(--text-light);
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
+        .hero-content { max-width: 800px; animation: slideInLeft 1s ease-out forwards; }
+        .hero h1 { font-size: 4rem; color: var(--text-light); line-height: 1.2; margin-bottom: 20px; }
         .hero h1 span { color: var(--accent-color); }
+        .hero p { font-size: 1.2rem; color: #dcdcdc; margin-bottom: 30px; line-height: 1.6; animation: fadeInUp 1s ease-out 0.5s forwards; opacity: 0; }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: #dcdcdc;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            animation: fadeInUp 1s ease-out 0.5s forwards;
-            opacity: 0;
-        }
-
-        /* DYNAMIC TYPING TEXT CSS */
-        .typing-text {
-            color: var(--accent-color);
-            border-right: 3px solid var(--accent-color);
-            white-space: nowrap;
-            overflow: hidden;
-            animation: blink 0.75s step-end infinite;
-        }
+        .typing-text { color: var(--accent-color); border-right: 3px solid var(--accent-color); white-space: nowrap; overflow: hidden; animation: blink 0.75s step-end infinite; }
         @keyframes blink { 50% { border-color: transparent; } }
 
-        /* ACTION BUTTONS */
-        .btn-container {
-            display: flex; gap: 20px;
-            animation: fadeInUp 1s ease-out 0.8s forwards; opacity: 0;
-        }
-
-        .btn {
-            padding: 15px 35px; font-size: 1.1rem; font-weight: bold;
-            text-decoration: none; border-radius: 5px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
+        .btn-container { display: flex; gap: 20px; animation: fadeInUp 1s ease-out 0.8s forwards; opacity: 0; }
+        .btn { padding: 15px 35px; font-size: 1.1rem; font-weight: bold; text-decoration: none; border-radius: 5px; transition: transform 0.3s, box-shadow 0.3s; }
         .btn-primary { background: var(--accent-color); color: var(--text-light); }
         .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3); }
-
         .btn-outline { background: transparent; border: 2px solid var(--text-light); color: var(--text-light); }
         .btn-outline:hover { background: var(--text-light); color: var(--primary-color); transform: translateY(-3px); }
 
-        /* PHASE 2: SECTION STYLING */
+        /* SECTIONS */
         .section { padding: 100px 10%; }
         .section-light { background: #FFFFFF; }
         .section-gray { background: var(--bg-light); }
+        .section-dark { background: var(--primary-color); color: var(--text-light); }
         
         .section-title { text-align: center; margin-bottom: 60px; }
         .section-title h2 { font-size: 2.5rem; color: var(--primary-color); text-transform: uppercase; }
+        .section-dark .section-title h2 { color: var(--text-light); }
         .section-title h2 span { color: var(--accent-color); }
         .section-title p { color: #666; font-size: 1.1rem; margin-top: 10px; }
+        .section-dark .section-title p { color: #b0c4de; }
 
-        /* PHASE 2: SERVICES GRID */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+        /* SERVICES GRID */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .service-card {
-            background: #FFFFFF;
-            padding: 40px 30px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-bottom: 4px solid transparent;
+            background: #FFFFFF; padding: 40px 30px; border-radius: 8px; text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; border-bottom: 4px solid transparent;
         }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border-bottom: 4px solid var(--accent-color);
-        }
-        .service-card i {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-bottom: 4px solid var(--accent-color); }
+        .service-card i { font-size: 3rem; color: var(--accent-color); margin-bottom: 20px; }
         .service-card h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.3rem; }
         .service-card p { color: #666; font-size: 0.95rem; line-height: 1.6; }
 
-        /* PHASE 2: HOW IT WORKS TIMELINE */
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        /* HOW IT WORKS TIMELINE */
+        .timeline { display: flex; flex-direction: column; gap: 30px; max-width: 800px; margin: 0 auto; }
         .timeline-step {
-            display: flex;
-            background: #FFFFFF;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            align-items: center;
-            gap: 25px;
-            border-left: 5px solid var(--accent-color);
+            display: flex; background: #FFFFFF; padding: 30px; border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); align-items: center; gap: 25px; border-left: 5px solid var(--accent-color);
         }
         .step-number {
-            background: var(--primary-color);
-            color: var(--text-light);
-            width: 50px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border-radius: 50%;
-            flex-shrink: 0;
+            background: var(--primary-color); color: var(--text-light); width: 50px; height: 50px;
+            display: flex; justify-content: center; align-items: center; font-size: 1.5rem; font-weight: bold; border-radius: 50%; flex-shrink: 0;
         }
         .step-content h3 { color: var(--primary-color); margin-bottom: 5px; }
         .step-content p { color: #666; font-size: 0.95rem; line-height: 1.5; }
+
+        /* PHASE 3: BEFORE/AFTER SLIDER */
+        .ba-slider-container { max-width: 900px; margin: 0 auto; position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2); line-height: 0; }
+        .ba-image { width: 100%; display: block; object-fit: cover; aspect-ratio: 16/9; pointer-events: none; }
+        .ba-after { position: relative; z-index: 1; }
+        .ba-before-wrapper { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 2; border-right: 4px solid var(--accent-color); }
+        .ba-before { width: 200%; max-width: none; } /* Forces the image inside the wrapper to stay full width */
+        .ba-range { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 10; margin: 0; 
+        }
+        .ba-button {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 40px; height: 40px; background: var(--accent-color); color: white; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; z-index: 3; box-shadow: 0 0 15px rgba(0,0,0,0.5); font-size: 1.2rem; pointer-events: none;
+        }
+
+        /* PHASE 3: CONTACT SECTION */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; max-width: 1000px; margin: 0 auto; }
+        .contact-info { padding-right: 20px; }
+        .contact-info h3 { font-size: 2rem; margin-bottom: 15px; }
+        .contact-info p { color: #b0c4de; margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6; }
+        .contact-methods { display: flex; flex-direction: column; gap: 20px; }
+        .contact-btn-large {
+            display: flex; align-items: center; gap: 20px; background: #FFFFFF; color: var(--primary-color);
+            padding: 20px 30px; border-radius: 8px; text-decoration: none; font-size: 1.2rem; font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: transform 0.3s;
+        }
+        .contact-btn-large:hover { transform: scale(1.03); }
+        .contact-btn-large i { font-size: 2rem; color: var(--accent-color); }
+        
+        .footer { text-align: center; padding: 30px; background: #07111F; color: #888; font-size: 0.9rem; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
             .timeline-step { flex-direction: column; text-align: center; }
+            .contact-grid { grid-template-columns: 1fr; text-align: center; }
+            .contact-info { padding-right: 0; }
         }
     </style>
 </head>
@@ -244,6 +151,7 @@
         <div class="nav-links">
             <a href="#services" id="nav-services">Services</a>
             <a href="#process" id="nav-process">How It Works</a>
+            <a href="#transformations" id="nav-trans">Past Work</a>
             <a href="#contact" id="nav-contact">Get a Quote</a>
             <button class="lang-toggle" onclick="toggleLanguage()">বাংলা</button>
         </div>
@@ -253,11 +161,8 @@
     <section class="hero">
         <div class="hero-content">
             <h4 id="hero-mini" style="color: var(--accent-color); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px;">Professional General Contracting</h4>
-            
             <h1 id="hero-heading">One Call. <br>We Handle The <span>Rest.</span></h1>
-            
             <p><span id="hero-subtext">Expert general contracting for Queens and the wider NYC area. From concept to cleanup, Noor Home Renovations manages the trucks, the specialized crews, and the heavy lifting.</span> <br><br><span id="hero-specialize">We specialize in</span> <span class="typing-text"></span></p>
-            
             <div class="btn-container">
                 <a href="#contact" class="btn btn-primary" id="btn-quote">Request a Free Estimate</a>
                 <a href="#services" class="btn btn-outline" id="btn-services">View Our Services</a>
@@ -265,13 +170,12 @@
         </div>
     </section>
 
-    <!-- OUR SERVICES SECTION -->
+    <!-- SERVICES SECTION -->
     <section id="services" class="section section-light">
         <div class="section-title">
             <h2 id="services-title">Our <span>Expertise</span></h2>
             <p id="services-sub">We deploy specialized, vetted crews for every aspect of your property.</p>
         </div>
-        
         <div class="services-grid">
             <div class="service-card">
                 <i class="fa-solid fa-house-chimney"></i>
@@ -306,13 +210,12 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS SECTION -->
+    <!-- PROCESS TIMELINE -->
     <section id="process" class="section section-gray">
         <div class="section-title">
             <h2 id="process-title">How It <span>Works</span></h2>
             <p id="process-sub">A seamless, stress-free construction process managed entirely by us.</p>
         </div>
-
         <div class="timeline">
             <div class="timeline-step">
                 <div class="step-number">1</div>
@@ -345,16 +248,79 @@
         </div>
     </section>
 
-    <!-- Phase 3 Placeholder: Interactive Before/After & Contact Form -->
+    <!-- PHASE 3: BEFORE & AFTER SLIDER -->
+    <section id="transformations" class="section section-light">
+        <div class="section-title">
+            <h2 id="transform-title">Our <span>Transformations</span></h2>
+            <p id="transform-sub">Slide left and right to see the difference.</p>
+        </div>
+        
+        <div class="ba-slider-container">
+            <!-- "After" Image (Modern finished room) -->
+            <img class="ba-image ba-after" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Finished Renovation">
+            
+            <!-- "Before" Image Wrapper (Raw construction site) -->
+            <div class="ba-before-wrapper" id="beforeWrap">
+                <img class="ba-image ba-before" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Before Renovation">
+            </div>
+            
+            <!-- Hidden Range Slider -->
+            <input type="range" min="0" max="100" value="50" class="ba-range" id="baRange" oninput="updateSlider()">
+            
+            <!-- Visual Handle Button -->
+            <div class="ba-button" id="baButton"><i class="fa-solid fa-arrows-left-right"></i></div>
+        </div>
+    </section>
 
-    <!-- JAVASCRIPT FOR ANIMATIONS AND DHAKA BENGALI TRANSLATIONS -->
+    <!-- PHASE 3: CONTACT SECTION -->
+    <section id="contact" class="section section-dark">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h3 id="contact-title">Get Your Free <span>Quote</span></h3>
+                <p id="contact-sub">Ready to start your project? Reach out to us today for a transparent, no-obligation estimate.</p>
+                <div class="contact-methods">
+                    <a href="tel:+19294516893" class="contact-btn-large">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <span style="font-size: 0.9rem; color: #888; font-weight: normal; display: block;" id="btn-call-text">Call Us Directly</span>
+                            (929) 451-6893
+                        </div>
+                    </a>
+                    <a href="mailto:majharul.islam86b@gmail.com" class="contact-btn-large">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <span style="font-size: 0.9rem; color: #888; font-weight: normal; display: block;" id="btn-email-text">Email Us</span>
+                            majharul.islam86b@gmail.com
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <i class="fa-solid fa-helmet-safety" style="font-size: 15rem; color: var(--accent-color); opacity: 0.8; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));"></i>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        &copy; 2026 Noor Home Renovations. All rights reserved. | Serving Queens & New York City
+    </footer>
+
+    <!-- JAVASCRIPT FOR ANIMATIONS, SLIDER & TRANSLATIONS -->
     <script>
-        // 1. DYNAMIC TYPING ANIMATION
+        // 1. BEFORE & AFTER SLIDER LOGIC
+        function updateSlider() {
+            let sliderValue = document.getElementById("baRange").value;
+            // Adjust the width of the "before" image wrapper
+            document.getElementById("beforeWrap").style.width = sliderValue + "%";
+            // Move the visible button to match
+            document.getElementById("baButton").style.left = sliderValue + "%";
+        }
+
+        // 2. DYNAMIC TYPING ANIMATION
         let wordsEnglish = ["Complete Home Renovations.", "Concrete & Masonry.", "Plumbing & Heating.", "Custom Painting.", "Kitchen & Bath Builds."];
         let wordsBengali = ["সম্পূর্ণ বাড়ির রিনোভেশন", "ঢালাই ও রাজমিস্ত্রির কাজ", "প্লাম্বিং ও হিটিং", "রং ও প্লাস্টার", "কিচেন ও বাথরুম তৈরি"];
         let currentWords = wordsEnglish; 
-        let i = 0;
-        let timer;
+        let i = 0; let timer;
 
         function typingEffect() {
             let word = currentWords[i].split("");
@@ -362,9 +328,8 @@
                 if (word.length > 0) {
                     document.querySelector('.typing-text').innerHTML += word.shift();
                 } else {
-                    setTimeout(deletingEffect, 2000);
-                    return false;
-                };
+                    setTimeout(deletingEffect, 2000); return false;
+                }
                 timer = setTimeout(loopTyping, 100);
             };
             loopTyping();
@@ -374,91 +339,82 @@
             let word = currentWords[i].split("");
             var loopDeleting = function() {
                 if (word.length > 0) {
-                    word.pop();
-                    document.querySelector('.typing-text').innerHTML = word.join("");
+                    word.pop(); document.querySelector('.typing-text').innerHTML = word.join("");
                 } else {
-                    if (currentWords.length > (i + 1)) { i++; } else { i = 0; };
-                    typingEffect();
-                    return false;
-                };
+                    if (currentWords.length > (i + 1)) { i++; } else { i = 0; }
+                    typingEffect(); return false;
+                }
                 timer = setTimeout(loopDeleting, 50);
             };
             loopDeleting();
         }
-        typingEffect(); // Start on load
+        typingEffect(); 
 
-        // 2. DHAKA BENGALI TRANSLATION LOGIC
+        // 3. DHAKA BENGALI TRANSLATION LOGIC (Now includes Phase 3)
         let isEnglish = true;
         function toggleLanguage() {
             const btn = document.querySelector('.lang-toggle');
             if (isEnglish) {
-                // --- SWITCH TO DHAKA BENGALI --- //
-                
-                // Navigation
+                // --- SWITCH TO DHAKA BENGALI ---
                 document.getElementById('nav-services').innerText = "সার্ভিসসমূহ";
                 document.getElementById('nav-process').innerText = "কাজের ধাপ";
-                document.getElementById('nav-contact').innerText = "কোটেশন নিন";
+                document.getElementById('nav-trans').innerText = "কাজের নমুনা";
+                document.getElementById('nav-contact').innerText = "যোগাযোগ";
                 
-                // Hero Section
                 document.getElementById('hero-mini').innerText = "পেশাদার ঠিকাদারি প্রতিষ্ঠান";
                 document.getElementById('hero-heading').innerHTML = "এক কল। <br>বাকি কাজ আমাদের <span>দায়িত্ব।</span>";
                 document.getElementById('hero-subtext').innerText = "কুইন্স এবং নিউইয়র্ক সিটি জুড়ে আমাদের রয়েছে পেশাদার ঠিকাদারি কাজের অভিজ্ঞতা। প্রজেক্টের শুরু থেকে কাজ শেষে পরিষ্কার করা পর্যন্ত— নূর হোম রিনোভেশনস দক্ষ কর্মী, মালামাল পরিবহন এবং সমস্ত ভারী কাজের দায়িত্ব নেয়।";
                 document.getElementById('hero-specialize').innerText = "আমাদের বিশেষ সার্ভিস: ";
                 document.getElementById('btn-quote').innerText = "ফ্রি কোটেশন নিন";
                 document.getElementById('btn-services').innerText = "আমাদের সার্ভিসসমূহ";
-                currentWords = wordsBengali; // Swap typing animation words
+                currentWords = wordsBengali; 
                 
-                // Services Section Titles
                 document.getElementById('services-title').innerHTML = "আমাদের <span>কাজের ক্ষেত্র</span>";
                 document.getElementById('services-sub').innerText = "আপনার প্রপার্টির যেকোনো কাজের জন্য আমরা অভিজ্ঞ ও বিশ্বস্ত কর্মী নিয়োগ করি।";
                 
-                // Services Grid
                 document.getElementById('srv-title-1').innerText = "সম্পূর্ণ বাড়ির রিনোভেশন";
                 document.getElementById('srv-desc-1').innerText = "বাড়ির ভেতরের সম্পূর্ণ রূপান্তর। নতুন ঘরের ফ্রেম তৈরি থেকে শুরু করে শিটরক, ফ্লোরিং এবং আধুনিক ফিনিশিংয়ের কাজ।";
-                
                 document.getElementById('srv-title-2').innerText = "ঢালাই ও রাজমিস্ত্রির কাজ";
                 document.getElementById('srv-desc-2').innerText = "ঢালাই, ইটের গাঁথুনি, ড্রাইভওয়ে, ফুটপাত এবং ফাউন্ডেশন মেরামতের কাজ।";
-                
                 document.getElementById('srv-title-3').innerText = "প্লাম্বিং সার্ভিস";
                 document.getElementById('srv-desc-3').innerText = "বয়লার ফিটিং, পাইপ মেরামত এবং কিচেন ও বাথরুমের সম্পূর্ণ প্লাম্বিং কাজের জন্য দক্ষ মিস্ত্রি বা কর্মী।";
-                
                 document.getElementById('srv-title-4').innerText = "রং ও প্লাস্টার";
                 document.getElementById('srv-desc-4').innerText = "উচ্চমানের ইন্টেরিয়র এবং এক্সটেরিয়র পেইন্টিং, ড্রাইওয়াল মেরামত এবং নিখুঁত প্লাস্টার ফিনিশিং।";
-                
                 document.getElementById('srv-title-5').innerText = "সাধারণ মেরামত";
                 document.getElementById('srv-desc-5').innerText = "বাসা-বাড়ির যেকোনো সাধারণ মেরামত, দরজা-জানালা ফিটিং এবং জরুরি কাজের জন্য দ্রুত সার্ভিস।";
-                
                 document.getElementById('srv-title-6').innerText = "বাইরের কাজ ও বেড়া";
                 document.getElementById('srv-desc-6').innerText = "প্রফেশনাল ল্যান্ডস্কেপিং, প্রাইভেসি ফেন্স বা বেড়া দেওয়া, ডেকিং এবং বাইরের সৌন্দর্যবর্ধন।";
                 
-                // Process Timeline Section
                 document.getElementById('process-title').innerHTML = "যেভাবে আমরা <span>কাজ করি</span>";
                 document.getElementById('process-sub').innerText = "একটি ঝামেলাবিহীন ও চিন্তামুক্ত নির্মাণ প্রক্রিয়া, যার পুরো দায়িত্ব আমাদের।";
-                
                 document.getElementById('stp-title-1').innerText = "পরামর্শ ও কোটেশন";
                 document.getElementById('stp-desc-1').innerText = "আপনার প্রজেক্টের বিস্তারিত জানিয়ে আমাদের সাথে যোগাযোগ করুন। আমরা কাজের ধরন বুঝে একটি স্বচ্ছ এবং সাশ্রয়ী কোটেশন দেব।";
-                
                 document.getElementById('stp-title-2').innerText = "দক্ষ কর্মী নিয়োগ";
                 document.getElementById('stp-desc-2').innerText = "প্রধান প্রজেক্ট ম্যানেজার হিসেবে, প্লাম্বার থেকে শুরু করে কংক্রিট মিস্ত্রি পর্যন্ত আপনার কাজের জন্য ঠিক যে ধরনের বিশেষজ্ঞ প্রয়োজন, আমরা তাদেরকেই পাঠাই।";
-                
                 document.getElementById('stp-title-3').innerText = "নির্মাণ কাজ";
                 document.getElementById('stp-desc-3').innerText = "আমাদের টিম সময়মতো পৌঁছে যাবে। নিখুঁত ও মানসম্মত কাজ নিশ্চিত করতে আমরা প্রতিদিন কাজের তদারকি করি।";
-                
                 document.getElementById('stp-title-4').innerText = "চূড়ান্ত পরিদর্শন ও হস্তান্তর";
                 document.getElementById('stp-desc-4').innerText = "১০০% সন্তুষ্টি নিশ্চিত করতে আমরা কাজের স্থানটি পরিষ্কার করি এবং আপনার সাথে মিলে সম্পূর্ণ কাজটির চূড়ান্ত পরিদর্শন করে বুঝিয়ে দিই।";
+
+                // Phase 3 Translations
+                document.getElementById('transform-title').innerHTML = "আমাদের <span>কাজের নমুনা</span>";
+                document.getElementById('transform-sub').innerText = "কাজের আগের ও পরের রূপ দেখতে স্লাইড করুন।";
+                
+                document.getElementById('contact-title').innerHTML = "ফ্রি <span>কোটেশন</span> নিন";
+                document.getElementById('contact-sub').innerText = "আপনার প্রজেক্ট শুরু করতে প্রস্তুত? কোনো বাধ্যবাধকতা ছাড়াই একটি স্বচ্ছ এস্টিমেট বা কোটেশন পেতে আজই যোগাযোগ করুন।";
+                document.getElementById('btn-call-text').innerText = "সরাসরি কল করুন";
+                document.getElementById('btn-email-text').innerText = "ইমেইল করুন";
 
                 btn.innerText = "English";
                 isEnglish = false;
 
             } else {
-                // --- REVERT BACK TO ENGLISH --- //
-                
-                // Navigation
+                // --- REVERT TO ENGLISH ---
                 document.getElementById('nav-services').innerText = "Services";
                 document.getElementById('nav-process').innerText = "How It Works";
+                document.getElementById('nav-trans').innerText = "Past Work";
                 document.getElementById('nav-contact').innerText = "Get a Quote";
                 
-                // Hero Section
                 document.getElementById('hero-mini').innerText = "Professional General Contracting";
                 document.getElementById('hero-heading').innerHTML = "One Call. <br>We Handle The <span>Rest.</span>";
                 document.getElementById('hero-subtext').innerText = "Expert general contracting for Queens and the wider NYC area. From concept to cleanup, Noor Home Renovations manages the trucks, the specialized crews, and the heavy lifting.";
@@ -467,45 +423,40 @@
                 document.getElementById('btn-services').innerText = "View Our Services";
                 currentWords = wordsEnglish;
                 
-                // Services Section Titles
                 document.getElementById('services-title').innerHTML = "Our <span>Expertise</span>";
                 document.getElementById('services-sub').innerText = "We deploy specialized, vetted crews for every aspect of your property.";
-                
-                // Services Grid
                 document.getElementById('srv-title-1').innerText = "Full Home Renovations";
                 document.getElementById('srv-desc-1').innerText = "Complete interior transformations. From framing new rooms to sheetrock, flooring, and modern finishes.";
-                
                 document.getElementById('srv-title-2').innerText = "Concrete & Masonry";
                 document.getElementById('srv-desc-2').innerText = "Expert concrete pouring, brickwork, driveways, sidewalks, and structural foundation repairs.";
-                
                 document.getElementById('srv-title-3').innerText = "Plumbing Services";
                 document.getElementById('srv-desc-3').innerText = "Expert crews for boiler installations, pipe repairs, and complete kitchen/bath plumbing setups.";
-                
                 document.getElementById('srv-title-4').innerText = "Painting & Plastering";
                 document.getElementById('srv-desc-4').innerText = "High-end interior and exterior painting, drywall repair, and flawless plaster finishing.";
-                
                 document.getElementById('srv-title-5').innerText = "Handyman & Repairs";
                 document.getElementById('srv-desc-5').innerText = "Fast dispatch for general house repairs, door/window installations, and emergency fixes.";
-                
                 document.getElementById('srv-title-6').innerText = "Exterior & Fencing";
                 document.getElementById('srv-desc-6').innerText = "Professional landscaping prep, privacy fence installation, decking, and exterior beautification.";
                 
-                // Process Timeline Section
                 document.getElementById('process-title').innerHTML = "How It <span>Works</span>";
                 document.getElementById('process-sub').innerText = "A seamless, stress-free construction process managed entirely by us.";
-                
                 document.getElementById('stp-title-1').innerText = "Consultation & Quote";
                 document.getElementById('stp-desc-1').innerText = "Contact us with your project details. We assess the scope and provide a transparent, competitive estimate.";
-                
                 document.getElementById('stp-title-2').innerText = "Crew Allocation";
                 document.getElementById('stp-desc-2').innerText = "As your project manager, we assemble the exact specialists needed—from plumbers to concrete experts.";
-                
                 document.getElementById('stp-title-3').innerText = "Construction Phase";
                 document.getElementById('stp-desc-3').innerText = "Our trucks and teams arrive on schedule. We oversee all daily work to ensure high-quality, code-compliant results.";
-                
                 document.getElementById('stp-title-4').innerText = "Final Walkthrough";
                 document.getElementById('stp-desc-4').innerText = "We clean up the site and conduct a thorough inspection with you to guarantee 100% satisfaction.";
                 
+                // Phase 3 Translations
+                document.getElementById('transform-title').innerHTML = "Our <span>Transformations</span>";
+                document.getElementById('transform-sub').innerText = "Slide left and right to see the difference.";
+                document.getElementById('contact-title').innerHTML = "Get Your Free <span>Quote</span>";
+                document.getElementById('contact-sub').innerText = "Ready to start your project? Reach out to us today for a transparent, no-obligation estimate.";
+                document.getElementById('btn-call-text').innerText = "Call Us Directly";
+                document.getElementById('btn-email-text').innerText = "Email Us";
+
                 btn.innerText = "বাংলা";
                 isEnglish = true;
             }
