@@ -66,6 +66,26 @@
         .btn-outline { background: transparent; border: 2px solid var(--text-light); color: var(--text-light); }
         .btn-outline:hover { background: var(--text-light); color: var(--primary-color); transform: translateY(-3px); }
 
+        /* TRUST BADGE BAR */
+        .trust-bar {
+            background-color: var(--primary-color);
+            padding: 30px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-top: 4px solid var(--accent-color);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .trust-badge {
+            display: flex; align-items: center; gap: 15px; color: var(--text-light);
+            flex: 1; min-width: 250px; justify-content: center;
+        }
+        .trust-badge i { font-size: 2.2rem; color: var(--accent-color); }
+        .trust-badge h4 { font-size: 1.1rem; margin: 0 0 3px 0; text-transform: uppercase; letter-spacing: 0.5px; }
+        .trust-badge p { font-size: 0.85rem; color: #b0c4de; margin: 0; }
+
         /* SECTIONS */
         .section { padding: 100px 10%; }
         .section-light { background: #FFFFFF; }
@@ -103,22 +123,20 @@
         .step-content h3 { color: var(--primary-color); margin-bottom: 5px; }
         .step-content p { color: #666; font-size: 0.95rem; line-height: 1.5; }
 
-        /* PHASE 3: BEFORE/AFTER SLIDER */
+        /* BEFORE/AFTER SLIDER */
         .ba-slider-container { max-width: 900px; margin: 0 auto; position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2); line-height: 0; }
         .ba-image { width: 100%; display: block; object-fit: cover; aspect-ratio: 16/9; pointer-events: none; }
         .ba-after { position: relative; z-index: 1; }
         .ba-before-wrapper { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 2; border-right: 4px solid var(--accent-color); }
-        .ba-before { width: 200%; max-width: none; } /* Forces the image inside the wrapper to stay full width */
-        .ba-range { 
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 10; margin: 0; 
-        }
+        .ba-before { width: 200%; max-width: none; } 
+        .ba-range { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 10; margin: 0; }
         .ba-button {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
             width: 40px; height: 40px; background: var(--accent-color); color: white; border-radius: 50%;
             display: flex; justify-content: center; align-items: center; z-index: 3; box-shadow: 0 0 15px rgba(0,0,0,0.5); font-size: 1.2rem; pointer-events: none;
         }
 
-        /* PHASE 3: CONTACT SECTION */
+        /* CONTACT SECTION */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; max-width: 1000px; margin: 0 auto; }
         .contact-info { padding-right: 20px; }
         .contact-info h3 { font-size: 2rem; margin-bottom: 15px; }
@@ -134,9 +152,27 @@
         
         .footer { text-align: center; padding: 30px; background: #07111F; color: #888; font-size: 0.9rem; }
 
+        /* FLOATING ACTION BUTTON (CALL NOW) */
+        .fab-call {
+            position: fixed; bottom: 30px; right: 30px;
+            background-color: var(--accent-color); color: var(--text-light);
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            font-size: 1.8rem; box-shadow: 0 10px 25px rgba(255, 102, 0, 0.5);
+            z-index: 1000; text-decoration: none; transition: transform 0.3s;
+            animation: pulse-orange 2s infinite;
+        }
+        .fab-call:hover { transform: scale(1.1); color: var(--primary-color); }
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 102, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 102, 0, 0); }
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
+            .trust-badge { min-width: 100%; text-align: left; justify-content: flex-start; }
             .timeline-step { flex-direction: column; text-align: center; }
             .contact-grid { grid-template-columns: 1fr; text-align: center; }
             .contact-info { padding-right: 0; }
@@ -169,6 +205,31 @@
             </div>
         </div>
     </section>
+
+    <!-- TRUST BADGE BAR -->
+    <div class="trust-bar">
+        <div class="trust-badge">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+            <div>
+                <h4 id="trust-title-1">Transparent Estimates</h4>
+                <p id="trust-desc-1">No hidden fees or surprises.</p>
+            </div>
+        </div>
+        <div class="trust-badge">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <div>
+                <h4 id="trust-title-2">Locally Operated</h4>
+                <p id="trust-desc-2">Serving the 5 Boroughs & Long Island.</p>
+            </div>
+        </div>
+        <div class="trust-badge">
+            <i class="fa-solid fa-truck-fast"></i>
+            <div>
+                <h4 id="trust-title-3">Rapid Dispatch</h4>
+                <p id="trust-desc-3">Emergency repair crews available.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- SERVICES SECTION -->
     <section id="services" class="section section-light">
@@ -248,7 +309,7 @@
         </div>
     </section>
 
-    <!-- PHASE 3: BEFORE & AFTER SLIDER -->
+    <!-- BEFORE & AFTER SLIDER -->
     <section id="transformations" class="section section-light">
         <div class="section-title">
             <h2 id="transform-title">Our <span>Transformations</span></h2>
@@ -272,7 +333,7 @@
         </div>
     </section>
 
-    <!-- PHASE 3: CONTACT SECTION -->
+    <!-- CONTACT SECTION -->
     <section id="contact" class="section section-dark">
         <div class="contact-grid">
             <div class="contact-info">
@@ -305,14 +366,17 @@
         &copy; 2026 Noor Home Renovations. All rights reserved. | Serving Queens & New York City
     </footer>
 
+    <!-- FLOATING CALL BUTTON -->
+    <a href="tel:+19294516893" class="fab-call" title="Call Us Now">
+        <i class="fa-solid fa-phone-volume"></i>
+    </a>
+
     <!-- JAVASCRIPT FOR ANIMATIONS, SLIDER & TRANSLATIONS -->
     <script>
         // 1. BEFORE & AFTER SLIDER LOGIC
         function updateSlider() {
             let sliderValue = document.getElementById("baRange").value;
-            // Adjust the width of the "before" image wrapper
             document.getElementById("beforeWrap").style.width = sliderValue + "%";
-            // Move the visible button to match
             document.getElementById("baButton").style.left = sliderValue + "%";
         }
 
@@ -350,7 +414,7 @@
         }
         typingEffect(); 
 
-        // 3. DHAKA BENGALI TRANSLATION LOGIC (Now includes Phase 3)
+        // 3. DHAKA BENGALI TRANSLATION LOGIC 
         let isEnglish = true;
         function toggleLanguage() {
             const btn = document.querySelector('.lang-toggle');
@@ -368,6 +432,14 @@
                 document.getElementById('btn-quote').innerText = "ফ্রি কোটেশন নিন";
                 document.getElementById('btn-services').innerText = "আমাদের সার্ভিসসমূহ";
                 currentWords = wordsBengali; 
+                
+                // Trust Badges
+                document.getElementById('trust-title-1').innerText = "স্বচ্ছ কোটেশন";
+                document.getElementById('trust-desc-1').innerText = "কোনো লুকানো খরচ নেই।";
+                document.getElementById('trust-title-2').innerText = "স্থানীয় প্রতিষ্ঠান";
+                document.getElementById('trust-desc-2').innerText = "৫টি বরো ও লং আইল্যান্ডে সার্ভিস।";
+                document.getElementById('trust-title-3').innerText = "দ্রুত রেসপন্স";
+                document.getElementById('trust-desc-3').innerText = "জরুরি মেরামতের জন্য প্রস্তুত।";
                 
                 document.getElementById('services-title').innerHTML = "আমাদের <span>কাজের ক্ষেত্র</span>";
                 document.getElementById('services-sub').innerText = "আপনার প্রপার্টির যেকোনো কাজের জন্য আমরা অভিজ্ঞ ও বিশ্বস্ত কর্মী নিয়োগ করি।";
@@ -396,7 +468,6 @@
                 document.getElementById('stp-title-4').innerText = "চূড়ান্ত পরিদর্শন ও হস্তান্তর";
                 document.getElementById('stp-desc-4').innerText = "১০০% সন্তুষ্টি নিশ্চিত করতে আমরা কাজের স্থানটি পরিষ্কার করি এবং আপনার সাথে মিলে সম্পূর্ণ কাজটির চূড়ান্ত পরিদর্শন করে বুঝিয়ে দিই।";
 
-                // Phase 3 Translations
                 document.getElementById('transform-title').innerHTML = "আমাদের <span>কাজের নমুনা</span>";
                 document.getElementById('transform-sub').innerText = "কাজের আগের ও পরের রূপ দেখতে স্লাইড করুন।";
                 
@@ -422,6 +493,13 @@
                 document.getElementById('btn-quote').innerText = "Request a Free Estimate";
                 document.getElementById('btn-services').innerText = "View Our Services";
                 currentWords = wordsEnglish;
+                
+                document.getElementById('trust-title-1').innerText = "Transparent Estimates";
+                document.getElementById('trust-desc-1').innerText = "No hidden fees or surprises.";
+                document.getElementById('trust-title-2').innerText = "Locally Operated";
+                document.getElementById('trust-desc-2').innerText = "Serving the 5 Boroughs & Long Island.";
+                document.getElementById('trust-title-3').innerText = "Rapid Dispatch";
+                document.getElementById('trust-desc-3').innerText = "Emergency repair crews available.";
                 
                 document.getElementById('services-title').innerHTML = "Our <span>Expertise</span>";
                 document.getElementById('services-sub').innerText = "We deploy specialized, vetted crews for every aspect of your property.";
@@ -449,7 +527,6 @@
                 document.getElementById('stp-title-4').innerText = "Final Walkthrough";
                 document.getElementById('stp-desc-4').innerText = "We clean up the site and conduct a thorough inspection with you to guarantee 100% satisfaction.";
                 
-                // Phase 3 Translations
                 document.getElementById('transform-title').innerHTML = "Our <span>Transformations</span>";
                 document.getElementById('transform-sub').innerText = "Slide left and right to see the difference.";
                 document.getElementById('contact-title').innerHTML = "Get Your Free <span>Quote</span>";
