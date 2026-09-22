@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Noor Home Renovations | General Contracting NYC</title>
     
-    <!-- Importing Professional Fonts -->
+    <!-- Importing Professional Fonts & Icons (FontAwesome for the Service Cards) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         /* CORE VARIABLES - Deep Navy & Safety Orange */
         :root {
-            --primary-color: #0B192C; /* Deep Navy */
-            --accent-color: #FF6600; /* Safety Orange */
+            --primary-color: #0B192C; 
+            --accent-color: #FF6600; 
             --text-light: #FFFFFF;
             --text-dark: #333333;
-            --bg-light: #F8F9FA;
+            --bg-light: #F4F7F6;
         }
 
         * {
@@ -69,11 +70,7 @@
 
         .navbar .logo span { color: var(--accent-color); }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            align-items: center;
-        }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
 
         .nav-links a {
             color: var(--text-light);
@@ -100,10 +97,9 @@
             color: var(--text-light);
         }
 
-        /* HERO SECTION (The First Impression) */
+        /* HERO SECTION */
         .hero {
             height: 100vh;
-            /* NOTE: Background image of a modern home exterior/construction */
             background: linear-gradient(rgba(11, 25, 44, 0.8), rgba(11, 25, 44, 0.9)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
             display: flex;
             align-items: center;
@@ -145,53 +141,106 @@
 
         /* ACTION BUTTONS */
         .btn-container {
-            display: flex;
-            gap: 20px;
-            animation: fadeInUp 1s ease-out 0.8s forwards;
-            opacity: 0;
+            display: flex; gap: 20px;
+            animation: fadeInUp 1s ease-out 0.8s forwards; opacity: 0;
         }
 
         .btn {
-            padding: 15px 35px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
+            padding: 15px 35px; font-size: 1.1rem; font-weight: bold;
+            text-decoration: none; border-radius: 5px;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .btn-primary {
-            background: var(--accent-color);
-            color: var(--text-light);
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3);
-        }
+        .btn-primary { background: var(--accent-color); color: var(--text-light); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3); }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--text-light);
+        .btn-outline { background: transparent; border: 2px solid var(--text-light); color: var(--text-light); }
+        .btn-outline:hover { background: var(--text-light); color: var(--primary-color); transform: translateY(-3px); }
+
+        /* PHASE 2: SECTION STYLING */
+        .section { padding: 100px 10%; }
+        .section-light { background: #FFFFFF; }
+        .section-gray { background: var(--bg-light); }
+        
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary-color); text-transform: uppercase; }
+        .section-title h2 span { color: var(--accent-color); }
+        .section-title p { color: #666; font-size: 1.1rem; margin-top: 10px; }
+
+        /* PHASE 2: SERVICES GRID */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: #FFFFFF;
+            padding: 40px 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--accent-color);
+        }
+        .service-card i {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        .service-card h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.3rem; }
+        .service-card p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+        /* PHASE 2: HOW IT WORKS TIMELINE */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .timeline-step {
+            display: flex;
+            background: #FFFFFF;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            align-items: center;
+            gap: 25px;
+            border-left: 5px solid var(--accent-color);
+        }
+        .step-number {
+            background: var(--primary-color);
             color: var(--text-light);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 50%;
+            flex-shrink: 0;
         }
-        .btn-outline:hover {
-            background: var(--text-light);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
+        .step-content h3 { color: var(--primary-color); margin-bottom: 5px; }
+        .step-content p { color: #666; font-size: 0.95rem; line-height: 1.5; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
+            .timeline-step { flex-direction: column; text-align: center; }
         }
-
     </style>
 </head>
 <body>
 
     <!-- NAVIGATION -->
     <nav class="navbar">
-        <div class="logo">NOOR <span>HOME RENOVATIONS</span></div>
+        <div class="logo">NOOR <span>RENOVATIONS</span></div>
         <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#process">How It Works</a>
@@ -213,6 +262,86 @@
             <div class="btn-container">
                 <a href="#contact" class="btn btn-primary" id="btn-quote">Request a Free Estimate</a>
                 <a href="#services" class="btn btn-outline" id="btn-services">View Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHASE 2: OUR SERVICES SECTION -->
+    <section id="services" class="section section-light">
+        <div class="section-title">
+            <h2 id="services-title">Our <span>Expertise</span></h2>
+            <p id="services-sub">We deploy specialized, vetted crews for every aspect of your property.</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-house-chimney"></i>
+                <h3 class="srv-title">Full Home Renovations</h3>
+                <p class="srv-desc">Complete interior transformations. From framing new rooms to sheetrock, flooring, and modern finishes.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-trowel-bricks"></i>
+                <h3 class="srv-title">Concrete & Masonry</h3>
+                <p class="srv-desc">Expert concrete pouring, brickwork, driveways, sidewalks, and structural foundation repairs.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-sink"></i>
+                <h3 class="srv-title">Plumbing & Gas</h3>
+                <p class="srv-desc">Licensed crews for boiler installations, pipe repairs, gas lines, and complete kitchen/bath plumbing setups.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-paint-roller"></i>
+                <h3 class="srv-title">Painting & Plastering</h3>
+                <p class="srv-desc">High-end interior and exterior painting, drywall repair, and flawless plaster finishing.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-hammer"></i>
+                <h3 class="srv-title">Handyman & Repairs</h3>
+                <p class="srv-desc">Fast dispatch for general house repairs, door/window installations, and emergency fixes.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-tree"></i>
+                <h3 class="srv-title">Exterior & Fencing</h3>
+                <p class="srv-desc">Professional landscaping prep, privacy fence installation, decking, and exterior beautification.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHASE 2: HOW IT WORKS SECTION -->
+    <section id="process" class="section section-gray">
+        <div class="section-title">
+            <h2 id="process-title">How It <span>Works</span></h2>
+            <p id="process-sub">A seamless, stress-free construction process managed entirely by us.</p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3 class="stp-title">Consultation & Quote</h3>
+                    <p class="stp-desc">Contact us with your project details. We assess the scope and provide a transparent, competitive estimate.</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3 class="stp-title">Crew Allocation</h3>
+                    <p class="stp-desc">As your general contractor, we assemble the exact specialists needed—from plumbers to concrete experts.</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3 class="stp-title">Construction Phase</h3>
+                    <p class="stp-desc">Our trucks and teams arrive on schedule. We oversee all daily work to ensure high-quality, code-compliant results.</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3 class="stp-title">Final Walkthrough</h3>
+                    <p class="stp-desc">We clean up the site and conduct a thorough inspection with you to guarantee 100% satisfaction.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -245,11 +374,7 @@
                     word.pop();
                     document.querySelector('.typing-text').innerHTML = word.join("");
                 } else {
-                    if (words.length > (i + 1)) {
-                        i++;
-                    } else {
-                        i = 0;
-                    };
+                    if (words.length > (i + 1)) { i++; } else { i = 0; };
                     typingEffect();
                     return false;
                 };
@@ -257,27 +382,39 @@
             };
             loopDeleting();
         }
-        
-        // Start the typing effect when the page loads
-        typingEffect();
-
+        typingEffect(); // Start animation on load
 
         // 2. ENGLISH/BENGALI TRANSLATION LOGIC
         let isEnglish = true;
         function toggleLanguage() {
             const btn = document.querySelector('.lang-toggle');
             if (isEnglish) {
-                // Switch to Bengali
+                // Change Hero
                 document.getElementById('hero-heading').innerHTML = "এক কল। <br>বাকি সব আমাদের <span>দায়িত্ব।</span>";
                 document.getElementById('btn-quote').innerText = "বিনামূল্যে এস্টিমেট নিন";
                 document.getElementById('btn-services').innerText = "আমাদের সেবাসমূহ";
+                
+                // Change Section Titles
+                document.getElementById('services-title').innerHTML = "আমাদের <span>দক্ষতা</span>";
+                document.getElementById('services-sub').innerText = "আপনার সম্পত্তির প্রতিটি কাজের জন্য আমরা দক্ষ কর্মী নিয়োগ করি।";
+                
+                document.getElementById('process-title').innerHTML = "কীভাবে আমরা <span>কাজ করি</span>";
+                document.getElementById('process-sub').innerText = "একটি নির্বিঘ্ন, চিন্তামুক্ত নির্মাণ প্রক্রিয়া যা সম্পূর্ণ আমাদের দ্বারা পরিচালিত হয়।";
+                
                 btn.innerText = "English";
                 isEnglish = false;
             } else {
-                // Switch back to English
+                // Revert to English
                 document.getElementById('hero-heading').innerHTML = "One Call. <br>We Handle The <span>Rest.</span>";
                 document.getElementById('btn-quote').innerText = "Request a Free Estimate";
                 document.getElementById('btn-services').innerText = "View Our Services";
+                
+                document.getElementById('services-title').innerHTML = "Our <span>Expertise</span>";
+                document.getElementById('services-sub').innerText = "We deploy specialized, vetted crews for every aspect of your property.";
+                
+                document.getElementById('process-title').innerHTML = "How It <span>Works</span>";
+                document.getElementById('process-sub').innerText = "A seamless, stress-free construction process managed entirely by us.";
+                
                 btn.innerText = "বাংলা";
                 isEnglish = true;
             }
