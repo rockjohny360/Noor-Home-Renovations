@@ -15,152 +15,169 @@
             --primary-color: #0B192C; 
             --accent-color: #FF6600; 
             --text-light: #FFFFFF;
-            --text-dark: #333333;
-            --bg-light: #F4F7F6;
+            --text-dark: #222222;
+            --bg-light: #F0F3F5;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
         html { scroll-behavior: smooth; }
 
-        @keyframes fadeInUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
-        @keyframes slideInLeft { 0% { opacity: 0; transform: translateX(-50px); } 100% { opacity: 1; transform: translateX(0); } }
+        /* MECHANICAL REVEAL ANIMATIONS */
+        @keyframes blockReveal {
+            0% { clip-path: inset(100% 0 0 0); transform: translateY(20px); }
+            100% { clip-path: inset(0 0 0 0); transform: translateY(0); }
+        }
+        @keyframes hardSlideIn {
+            0% { transform: translateX(-50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes neonGlow {
+            from { text-shadow: 0 0 5px rgba(255, 102, 0, 0.8), 0 0 10px rgba(255, 102, 0, 0.5); }
+            to { text-shadow: 0 0 15px rgba(255, 102, 0, 1), 0 0 25px rgba(255, 102, 0, 0.8), 0 0 35px rgba(255, 102, 0, 0.6); }
+        }
 
         /* NAVIGATION BAR */
         .navbar {
             position: fixed; top: 0; width: 100%;
-            background: rgba(11, 25, 44, 0.95); backdrop-filter: blur(10px);
+            background: rgba(11, 25, 44, 0.98); border-bottom: 3px solid var(--accent-color);
             padding: 20px 40px; display: flex; justify-content: space-between;
-            align-items: center; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            align-items: center; z-index: 1000; box-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
-        .navbar .logo { color: var(--text-light); font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
-        .navbar .logo span { color: var(--accent-color); }
+        /* THE GLOWING LOGO */
+        .navbar .logo { 
+            color: var(--text-light); font-size: 1.6rem; font-weight: 800; 
+            letter-spacing: 1px; text-transform: uppercase; 
+        }
+        .navbar .logo span { 
+            color: var(--accent-color); 
+            animation: neonGlow 1.5s ease-in-out infinite alternate;
+        }
+        
         .nav-links { display: flex; gap: 25px; align-items: center; }
-        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; transition: color 0.3s; }
+        .nav-links a { color: var(--text-light); text-decoration: none; font-weight: 600; transition: color 0.2s; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 1px;}
         .nav-links a:hover { color: var(--accent-color); }
 
         .lang-toggle {
             background: transparent; border: 2px solid var(--accent-color); color: var(--accent-color);
-            padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: 0.3s;
+            padding: 8px 18px; cursor: pointer; font-weight: bold; transition: 0.2s; border-radius: 0; text-transform: uppercase;
         }
-        .lang-toggle:hover { background: var(--accent-color); color: var(--text-light); }
+        .lang-toggle:hover { background: var(--accent-color); color: var(--text-light); box-shadow: 4px 4px 0px rgba(255,255,255,0.2); }
 
         /* HERO SECTION */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(11, 25, 44, 0.8), rgba(11, 25, 44, 0.9)), url('Noor Web Background.jpg') center/cover no-repeat;
-            display: flex; align-items: center; padding: 0 10%;
+            /* Using the custom moodboard image generated specifically for Noor Renovations */
+            background: linear-gradient(rgba(11, 25, 44, 0.85), rgba(11, 25, 44, 0.95)), url('watermarked_img_11327408143060591014.jpg') center/cover no-repeat;
+            display: flex; align-items: center; padding: 0 10%; border-bottom: 8px solid var(--accent-color);
         }
-        .hero-content { max-width: 800px; animation: slideInLeft 1s ease-out forwards; }
-        .hero h1 { font-size: 4rem; color: var(--text-light); line-height: 1.2; margin-bottom: 20px; }
+        .hero-content { max-width: 800px; animation: hardSlideIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
+        .hero h1 { font-size: 4.5rem; color: var(--text-light); line-height: 1.1; margin-bottom: 20px; text-transform: uppercase; }
         .hero h1 span { color: var(--accent-color); }
-        .hero p { font-size: 1.2rem; color: #dcdcdc; margin-bottom: 30px; line-height: 1.6; animation: fadeInUp 1s ease-out 0.5s forwards; opacity: 0; }
+        .hero p { font-size: 1.2rem; color: #dcdcdc; margin-bottom: 40px; line-height: 1.6; animation: blockReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards; opacity: 0; }
 
-        .typing-text { color: var(--accent-color); border-right: 3px solid var(--accent-color); white-space: nowrap; overflow: hidden; animation: blink 0.75s step-end infinite; }
+        .typing-text { color: var(--accent-color); border-right: 4px solid var(--accent-color); white-space: nowrap; overflow: hidden; animation: blink 0.75s step-end infinite; }
         @keyframes blink { 50% { border-color: transparent; } }
 
-        .btn-container { display: flex; gap: 20px; animation: fadeInUp 1s ease-out 0.8s forwards; opacity: 0; }
-        .btn { padding: 15px 35px; font-size: 1.1rem; font-weight: bold; text-decoration: none; border-radius: 5px; transition: transform 0.3s, box-shadow 0.3s; }
-        .btn-primary { background: var(--accent-color); color: var(--text-light); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 102, 0, 0.3); }
+        /* BUTTONS (Sharp, Industrial edges) */
+        .btn-container { display: flex; gap: 20px; animation: blockReveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards; opacity: 0; }
+        .btn { padding: 18px 35px; font-size: 1.1rem; font-weight: 800; text-decoration: none; border-radius: 0; text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s; }
+        .btn-primary { background: var(--accent-color); color: var(--text-light); border: 2px solid var(--accent-color); }
+        .btn-primary:hover { transform: translate(-4px, -4px); box-shadow: 8px 8px 0px rgba(255, 255, 255, 0.1); }
         .btn-outline { background: transparent; border: 2px solid var(--text-light); color: var(--text-light); }
-        .btn-outline:hover { background: var(--text-light); color: var(--primary-color); transform: translateY(-3px); }
+        .btn-outline:hover { background: var(--text-light); color: var(--primary-color); transform: translate(-4px, -4px); box-shadow: 8px 8px 0px var(--accent-color); }
 
         /* TRUST BADGE BAR */
         .trust-bar {
-            background-color: var(--primary-color);
-            padding: 30px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            border-top: 4px solid var(--accent-color);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            background-color: var(--text-light); padding: 40px 10%; display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 20px; border-bottom: 2px solid #ddd;
         }
-        .trust-badge {
-            display: flex; align-items: center; gap: 15px; color: var(--text-light);
-            flex: 1; min-width: 250px; justify-content: center;
-        }
-        .trust-badge i { font-size: 2.2rem; color: var(--accent-color); }
-        .trust-badge h4 { font-size: 1.1rem; margin: 0 0 3px 0; text-transform: uppercase; letter-spacing: 0.5px; }
-        .trust-badge p { font-size: 0.85rem; color: #b0c4de; margin: 0; }
+        .trust-badge { display: flex; align-items: center; gap: 20px; color: var(--primary-color); flex: 1; min-width: 250px; justify-content: center; }
+        .trust-badge i { font-size: 2.5rem; color: var(--accent-color); }
+        .trust-badge h4 { font-size: 1.2rem; margin: 0 0 5px 0; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 800; }
+        .trust-badge p { font-size: 0.9rem; color: #555; margin: 0; }
 
         /* SECTIONS */
         .section { padding: 100px 10%; }
-        .section-light { background: #FFFFFF; }
-        .section-gray { background: var(--bg-light); }
-        .section-dark { background: var(--primary-color); color: var(--text-light); }
+        .section-light { background: var(--bg-light); }
+        .section-dark { background: var(--primary-color); color: var(--text-light); border-top: 5px solid var(--accent-color); }
         
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.5rem; color: var(--primary-color); text-transform: uppercase; }
+        .section-title { text-align: center; margin-bottom: 70px; }
+        .section-title h2 { font-size: 3rem; color: var(--primary-color); text-transform: uppercase; font-weight: 800; letter-spacing: 2px; }
         .section-dark .section-title h2 { color: var(--text-light); }
         .section-title h2 span { color: var(--accent-color); }
-        .section-title p { color: #666; font-size: 1.1rem; margin-top: 10px; }
+        .section-title p { color: #555; font-size: 1.1rem; margin-top: 15px; font-weight: 600; }
         .section-dark .section-title p { color: #b0c4de; }
 
-        /* SERVICES GRID */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* SERVICES GRID (Snap Hover Effects) */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
         .service-card {
-            background: #FFFFFF; padding: 40px 30px; border-radius: 8px; text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s, box-shadow 0.3s; border-bottom: 4px solid transparent;
+            background: #FFFFFF; padding: 50px 30px; text-align: center; border-radius: 0;
+            border: 1px solid #ddd; border-bottom: 6px solid var(--primary-color);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); position: relative; z-index: 1;
         }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); border-bottom: 4px solid var(--accent-color); }
-        .service-card i { font-size: 3rem; color: var(--accent-color); margin-bottom: 20px; }
-        .service-card h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.3rem; }
-        .service-card p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+        .service-card:hover { 
+            transform: translate(-5px, -5px); 
+            border-bottom: 6px solid var(--accent-color);
+            box-shadow: 12px 12px 0px rgba(11, 25, 44, 0.1); 
+        }
+        .service-card i { font-size: 3.5rem; color: var(--accent-color); margin-bottom: 25px; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .service-card:hover i { transform: scale(1.3); }
+        .service-card h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.4rem; text-transform: uppercase; font-weight: 800; }
+        .service-card p { color: #666; font-size: 1rem; line-height: 1.7; }
 
-        /* HOW IT WORKS TIMELINE */
+        /* HOW IT WORKS TIMELINE (Square blocks) */
         .timeline { display: flex; flex-direction: column; gap: 30px; max-width: 800px; margin: 0 auto; }
         .timeline-step {
-            display: flex; background: #FFFFFF; padding: 30px; border-radius: 8px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); align-items: center; gap: 25px; border-left: 5px solid var(--accent-color);
+            display: flex; background: #FFFFFF; padding: 30px; border-radius: 0; border: 1px solid #ddd;
+            align-items: center; gap: 25px; border-left: 8px solid var(--accent-color); transition: all 0.3s ease;
         }
+        .timeline-step:hover { transform: translateX(10px); box-shadow: 8px 8px 0px rgba(11, 25, 44, 0.05); }
         .step-number {
-            background: var(--primary-color); color: var(--text-light); width: 50px; height: 50px;
-            display: flex; justify-content: center; align-items: center; font-size: 1.5rem; font-weight: bold; border-radius: 50%; flex-shrink: 0;
+            background: var(--primary-color); color: var(--text-light); width: 60px; height: 60px;
+            display: flex; justify-content: center; align-items: center; font-size: 1.8rem; font-weight: 800; border-radius: 0; flex-shrink: 0;
         }
-        .step-content h3 { color: var(--primary-color); margin-bottom: 5px; }
-        .step-content p { color: #666; font-size: 0.95rem; line-height: 1.5; }
+        .step-content h3 { color: var(--primary-color); margin-bottom: 8px; font-size: 1.3rem; text-transform: uppercase; font-weight: 800; }
+        .step-content p { color: #555; font-size: 1rem; line-height: 1.6; }
 
-        /* BEFORE/AFTER SLIDER */
-        .ba-slider-container { max-width: 900px; margin: 0 auto; position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2); line-height: 0; }
+        /* BEFORE/AFTER SLIDER (Thick frames) */
+        .ba-slider-container { max-width: 1000px; margin: 0 auto; position: relative; overflow: hidden; border: 6px solid var(--primary-color); box-shadow: 15px 15px 0px rgba(0,0,0,0.1); line-height: 0; }
         .ba-image { width: 100%; display: block; object-fit: cover; aspect-ratio: 16/9; pointer-events: none; }
         .ba-after { position: relative; z-index: 1; }
-        .ba-before-wrapper { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 2; border-right: 4px solid var(--accent-color); }
+        .ba-before-wrapper { position: absolute; top: 0; left: 0; width: 50%; height: 100%; overflow: hidden; z-index: 2; border-right: 6px solid var(--accent-color); }
         .ba-before { width: 200%; max-width: none; } 
         .ba-range { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; z-index: 10; margin: 0; }
         .ba-button {
             position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 40px; height: 40px; background: var(--accent-color); color: white; border-radius: 50%;
-            display: flex; justify-content: center; align-items: center; z-index: 3; box-shadow: 0 0 15px rgba(0,0,0,0.5); font-size: 1.2rem; pointer-events: none;
+            width: 50px; height: 50px; background: var(--accent-color); color: white; border-radius: 0; /* Square slider handle */
+            display: flex; justify-content: center; align-items: center; z-index: 3; box-shadow: 0 0 15px rgba(0,0,0,0.5); font-size: 1.5rem; pointer-events: none; border: 3px solid #FFF;
         }
 
         /* CONTACT SECTION */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; max-width: 1000px; margin: 0 auto; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; max-width: 1100px; margin: 0 auto; }
         .contact-info { padding-right: 20px; }
-        .contact-info h3 { font-size: 2rem; margin-bottom: 15px; }
-        .contact-info p { color: #b0c4de; margin-bottom: 30px; font-size: 1.1rem; line-height: 1.6; }
-        .contact-methods { display: flex; flex-direction: column; gap: 20px; }
+        .contact-info h3 { font-size: 2.5rem; margin-bottom: 15px; font-weight: 800; text-transform: uppercase; }
+        .contact-info p { color: #b0c4de; margin-bottom: 40px; font-size: 1.1rem; line-height: 1.7; }
+        .contact-methods { display: flex; flex-direction: column; gap: 25px; }
         .contact-btn-large {
             display: flex; align-items: center; gap: 20px; background: #FFFFFF; color: var(--primary-color);
-            padding: 20px 30px; border-radius: 8px; text-decoration: none; font-size: 1.2rem; font-weight: bold;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: transform 0.3s;
+            padding: 25px 30px; border-radius: 0; text-decoration: none; font-size: 1.3rem; font-weight: 800;
+            border: 2px solid transparent; transition: all 0.2s;
         }
-        .contact-btn-large:hover { transform: scale(1.03); }
-        .contact-btn-large i { font-size: 2rem; color: var(--accent-color); }
+        .contact-btn-large:hover { transform: translate(-5px, -5px); box-shadow: 10px 10px 0px var(--accent-color); border: 2px solid var(--primary-color); }
+        .contact-btn-large i { font-size: 2.5rem; color: var(--accent-color); }
         
-        .footer { text-align: center; padding: 30px; background: #07111F; color: #888; font-size: 0.9rem; }
+        .footer { text-align: center; padding: 40px; background: #07111F; color: #666; font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         /* FLOATING ACTION BUTTON (CALL NOW) */
         .fab-call {
             position: fixed; bottom: 30px; right: 30px;
             background-color: var(--accent-color); color: var(--text-light);
-            width: 60px; height: 60px; border-radius: 50%;
+            width: 70px; height: 70px; border-radius: 50%;
             display: flex; justify-content: center; align-items: center;
-            font-size: 1.8rem; box-shadow: 0 10px 25px rgba(255, 102, 0, 0.5);
+            font-size: 2rem; box-shadow: 0 10px 25px rgba(255, 102, 0, 0.5);
             z-index: 1000; text-decoration: none; transition: transform 0.3s;
-            animation: pulse-orange 2s infinite;
+            animation: pulse-orange 2s infinite; border: 3px solid #FFF;
         }
         .fab-call:hover { transform: scale(1.1); color: var(--primary-color); }
         @keyframes pulse-orange {
@@ -170,10 +187,10 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            .hero h1 { font-size: 3rem; }
             .nav-links { display: none; }
             .trust-badge { min-width: 100%; text-align: left; justify-content: flex-start; }
-            .timeline-step { flex-direction: column; text-align: center; }
+            .timeline-step { flex-direction: column; text-align: center; border-left: none; border-top: 8px solid var(--accent-color); }
             .contact-grid { grid-template-columns: 1fr; text-align: center; }
             .contact-info { padding-right: 0; }
         }
@@ -183,7 +200,7 @@
 
     <!-- NAVIGATION -->
     <nav class="navbar">
-        <div class="logo">NOOR <span>RENOVATIONS</span></div>
+        <div class="logo">NOOR <span>HOME RENOVATIONS</span></div>
         <div class="nav-links">
             <a href="#services" id="nav-services">Services</a>
             <a href="#process" id="nav-process">How It Works</a>
@@ -196,7 +213,7 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h4 id="hero-mini" style="color: var(--accent-color); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px;">Professional General Contracting</h4>
+            <h4 id="hero-mini" style="color: var(--accent-color); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 10px; font-weight: 800;">Professional General Contracting</h4>
             <h1 id="hero-heading">One Call. <br>We Handle The <span>Rest.</span></h1>
             <p><span id="hero-subtext">Expert general contracting for Queens and the wider NYC area. From concept to cleanup, Noor Home Renovations manages the trucks, the specialized crews, and the heavy lifting.</span> <br><br><span id="hero-specialize">We specialize in</span> <span class="typing-text"></span></p>
             <div class="btn-container">
@@ -272,7 +289,7 @@
     </section>
 
     <!-- PROCESS TIMELINE -->
-    <section id="process" class="section section-gray">
+    <section id="process" class="section section-light">
         <div class="section-title">
             <h2 id="process-title">How It <span>Works</span></h2>
             <p id="process-sub">A seamless, stress-free construction process managed entirely by us.</p>
@@ -328,7 +345,7 @@
             <!-- Hidden Range Slider -->
             <input type="range" min="0" max="100" value="50" class="ba-range" id="baRange" oninput="updateSlider()">
             
-            <!-- Visual Handle Button -->
+            <!-- Visual Handle Button (Now a structured square) -->
             <div class="ba-button" id="baButton"><i class="fa-solid fa-arrows-left-right"></i></div>
         </div>
     </section>
@@ -357,7 +374,7 @@
                 </div>
             </div>
             <div style="text-align: center;">
-                <i class="fa-solid fa-helmet-safety" style="font-size: 15rem; color: var(--accent-color); opacity: 0.8; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));"></i>
+                <i class="fa-solid fa-helmet-safety" style="font-size: 15rem; color: var(--accent-color); opacity: 0.8; filter: drop-shadow(10px 10px 0px rgba(0,0,0,0.5));"></i>
             </div>
         </div>
     </section>
@@ -427,7 +444,7 @@
                 
                 document.getElementById('hero-mini').innerText = "পেশাদার ঠিকাদারি প্রতিষ্ঠান";
                 document.getElementById('hero-heading').innerHTML = "এক কল। <br>বাকি কাজ আমাদের <span>দায়িত্ব।</span>";
-                document.getElementById('hero-subtext').innerText = "কুইন্স এবং নিউইয়র্ক সিটি জুড়ে আমাদের রয়েছে পেশাদার ঠিকাদারি কাজের অভিজ্ঞতা। প্রজেক্টের শুরু থেকে কাজ শেষে পরিষ্কার করা পর্যন্ত— নূর হোম রিনোভেশনস দক্ষ কর্মী, মালামাল পরিবহন এবং সমস্ত ভারী কাজের দায়িত্ব নেয়।";
+                document.getElementById('hero-subtext').innerText = "কুইন্স এবং নিউইয়র্ক সিটি জুড়ে আমাদের রয়েছে পেশাদার ঠিকাদারি কাজের অভিজ্ঞতা। প্রজেক্টের শুরু থেকে কাজ শেষে পরিষ্কার করা পর্যন্ত— নূর হোম রিনোভেশনস দক্ষ কর্মী, মালামাল পরিবহন এবং সমস্ত ভারী কাজের দায়িত্ব নেয়।";
                 document.getElementById('hero-specialize').innerText = "আমাদের বিশেষ সার্ভিস: ";
                 document.getElementById('btn-quote').innerText = "ফ্রি কোটেশন নিন";
                 document.getElementById('btn-services').innerText = "আমাদের সার্ভিসসমূহ";
@@ -442,10 +459,10 @@
                 document.getElementById('trust-desc-3').innerText = "জরুরি মেরামতের জন্য প্রস্তুত।";
                 
                 document.getElementById('services-title').innerHTML = "আমাদের <span>কাজের ক্ষেত্র</span>";
-                document.getElementById('services-sub').innerText = "আপনার প্রপার্টির যেকোনো কাজের জন্য আমরা অভিজ্ঞ ও বিশ্বস্ত কর্মী নিয়োগ করি।";
+                document.getElementById('services-sub').innerText = "আপনার প্রপার্টির যেকোনো কাজের জন্য আমরা অভিজ্ঞ ও বিশ্বস্ত কর্মী নিয়োগ করি।";
                 
                 document.getElementById('srv-title-1').innerText = "সম্পূর্ণ বাড়ির রিনোভেশন";
-                document.getElementById('srv-desc-1').innerText = "বাড়ির ভেতরের সম্পূর্ণ রূপান্তর। নতুন ঘরের ফ্রেম তৈরি থেকে শুরু করে শিটরক, ফ্লোরিং এবং আধুনিক ফিনিশিংয়ের কাজ।";
+                document.getElementById('srv-desc-1').innerText = "বাড়ির ভেতরের সম্পূর্ণ রূপান্তর। নতুন ঘরের ফ্রেম তৈরি থেকে শুরু করে শিটরক, ফ্লোরিং এবং আধুনিক ফিনিশিংয়ের কাজ।";
                 document.getElementById('srv-title-2').innerText = "ঢালাই ও রাজমিস্ত্রির কাজ";
                 document.getElementById('srv-desc-2').innerText = "ঢালাই, ইটের গাঁথুনি, ড্রাইভওয়ে, ফুটপাত এবং ফাউন্ডেশন মেরামতের কাজ।";
                 document.getElementById('srv-title-3').innerText = "প্লাম্বিং সার্ভিস";
@@ -453,26 +470,26 @@
                 document.getElementById('srv-title-4').innerText = "রং ও প্লাস্টার";
                 document.getElementById('srv-desc-4').innerText = "উচ্চমানের ইন্টেরিয়র এবং এক্সটেরিয়র পেইন্টিং, ড্রাইওয়াল মেরামত এবং নিখুঁত প্লাস্টার ফিনিশিং।";
                 document.getElementById('srv-title-5').innerText = "সাধারণ মেরামত";
-                document.getElementById('srv-desc-5').innerText = "বাসা-বাড়ির যেকোনো সাধারণ মেরামত, দরজা-জানালা ফিটিং এবং জরুরি কাজের জন্য দ্রুত সার্ভিস।";
+                document.getElementById('srv-desc-5').innerText = "বাসা-বাড়ির যেকোনো সাধারণ মেরামত, দরজা-জানালা ফিটিং এবং জরুরি কাজের জন্য দ্রুত সার্ভিস।";
                 document.getElementById('srv-title-6').innerText = "বাইরের কাজ ও বেড়া";
-                document.getElementById('srv-desc-6').innerText = "প্রফেশনাল ল্যান্ডস্কেপিং, প্রাইভেসি ফেন্স বা বেড়া দেওয়া, ডেকিং এবং বাইরের সৌন্দর্যবর্ধন।";
+                document.getElementById('srv-desc-6').innerText = "প্রফেশনাল ল্যান্ডস্কেপিং, প্রাইভেসি ফেন্স বা বেড়া দেওয়া, ডেকিং এবং বাইরের সৌন্দর্যবর্ধন।";
                 
                 document.getElementById('process-title').innerHTML = "যেভাবে আমরা <span>কাজ করি</span>";
-                document.getElementById('process-sub').innerText = "একটি ঝামেলাবিহীন ও চিন্তামুক্ত নির্মাণ প্রক্রিয়া, যার পুরো দায়িত্ব আমাদের।";
+                document.getElementById('process-sub').innerText = "একটি ঝামেলাবিহীন ও চিন্তামুক্ত নির্মাণ প্রক্রিয়া, যার পুরো দায়িত্ব আমাদের।";
                 document.getElementById('stp-title-1').innerText = "পরামর্শ ও কোটেশন";
                 document.getElementById('stp-desc-1').innerText = "আপনার প্রজেক্টের বিস্তারিত জানিয়ে আমাদের সাথে যোগাযোগ করুন। আমরা কাজের ধরন বুঝে একটি স্বচ্ছ এবং সাশ্রয়ী কোটেশন দেব।";
-                document.getElementById('stp-title-2').innerText = "দক্ষ কর্মী নিয়োগ";
+                document.getElementById('stp-title-2').innerText = "দক্ষ কর্মী নিয়োগ";
                 document.getElementById('stp-desc-2').innerText = "প্রধান প্রজেক্ট ম্যানেজার হিসেবে, প্লাম্বার থেকে শুরু করে কংক্রিট মিস্ত্রি পর্যন্ত আপনার কাজের জন্য ঠিক যে ধরনের বিশেষজ্ঞ প্রয়োজন, আমরা তাদেরকেই পাঠাই।";
                 document.getElementById('stp-title-3').innerText = "নির্মাণ কাজ";
                 document.getElementById('stp-desc-3').innerText = "আমাদের টিম সময়মতো পৌঁছে যাবে। নিখুঁত ও মানসম্মত কাজ নিশ্চিত করতে আমরা প্রতিদিন কাজের তদারকি করি।";
                 document.getElementById('stp-title-4').innerText = "চূড়ান্ত পরিদর্শন ও হস্তান্তর";
-                document.getElementById('stp-desc-4').innerText = "১০০% সন্তুষ্টি নিশ্চিত করতে আমরা কাজের স্থানটি পরিষ্কার করি এবং আপনার সাথে মিলে সম্পূর্ণ কাজটির চূড়ান্ত পরিদর্শন করে বুঝিয়ে দিই।";
+                document.getElementById('stp-desc-4').innerText = "১০০% সন্তুষ্টি নিশ্চিত করতে আমরা কাজের স্থানটি পরিষ্কার করি এবং আপনার সাথে মিলে সম্পূর্ণ কাজটির চূড়ান্ত পরিদর্শন করে বুঝিয়ে দিই।";
 
                 document.getElementById('transform-title').innerHTML = "আমাদের <span>কাজের নমুনা</span>";
                 document.getElementById('transform-sub').innerText = "কাজের আগের ও পরের রূপ দেখতে স্লাইড করুন।";
                 
                 document.getElementById('contact-title').innerHTML = "ফ্রি <span>কোটেশন</span> নিন";
-                document.getElementById('contact-sub').innerText = "আপনার প্রজেক্ট শুরু করতে প্রস্তুত? কোনো বাধ্যবাধকতা ছাড়াই একটি স্বচ্ছ এস্টিমেট বা কোটেশন পেতে আজই যোগাযোগ করুন।";
+                document.getElementById('contact-sub').innerText = "আপনার প্রজেক্ট শুরু করতে প্রস্তুত? কোনো বাধ্যবাধকতা ছাড়াই একটি স্বচ্ছ এস্টিমেট বা কোটেশন পেতে আজই যোগাযোগ করুন।";
                 document.getElementById('btn-call-text').innerText = "সরাসরি কল করুন";
                 document.getElementById('btn-email-text').innerText = "ইমেইল করুন";
 
